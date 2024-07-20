@@ -13,9 +13,9 @@ fn read_file(path: String) -> String {
     println!("------------------READ COMPLETED FROM RUST----------------------");
     let converted_string = data.to_lowercase();
     sleep(Duration::from_millis(30000));
-    let capitalize = uppercase_first(converted_string);
-    let final_string = format!("{}{}", capitalize, "...");
-    // let final_string = format!("{}{}", converted_string, ".");
+    // let capitalize = uppercase_first(converted_string);
+    // let final_string = format!("{}{}", capitalize, "...");
+    let final_string = format!("{}{}", converted_string, ".");
     return final_string;
 }
 

@@ -82,8 +82,8 @@ defmodule PhoenixDistillery.TextConversion do
   #   "#{converted_text}."
   # end
 
-  @impl true
-  def code_change(_old_vsn, state, counter) do
-    {:ok, %{"counter" => counter, "elements" => state}}
-  end
+  # @impl true
+  # def code_change(_old_vsn, state, counter) do
+  #   {:ok, %{"counter" => counter, "elements" => state}}
+  # end
 end
