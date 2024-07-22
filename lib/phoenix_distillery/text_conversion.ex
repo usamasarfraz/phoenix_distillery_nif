@@ -60,8 +60,10 @@ defmodule PhoenixDistillery.TextConversion do
     # {:ok, text} = File.read(path)
     # IO.inspect("------------------READ COMPLETED----------------------")
     # converted_string = convertion(text)
-    converted_string = PhoenixDistillery.NifDemo.read_file(path)
-    IO.inspect("------------------CONVERSION COMPLETED----------------------")
+    lower_case_string = PhoenixDistillery.NifDemo.read_file(path)
+    IO.inspect("------------------CONVERSION COMPLETED FROM RUST NIF----------------------")
+    converted_string = convertion(lower_case_string)
+    IO.inspect("------------------CONVERSION COMPLETED FROM ELIXIR----------------------")
     end_time = DateTime.utc_now()
     diff = DateTime.diff(end_time, starting_time, :microsecond)
     ending_version = Application.spec(:phoenix_distillery)[:vsn]
@@ -69,18 +71,19 @@ defmodule PhoenixDistillery.TextConversion do
     {:reply, converted_string, state}
   end
 
-  # defp convertion(text) do
-  #   # first version
-  #   # text
-  #   # |> String.downcase()
+  defp convertion(text) do
+    # first version
+    converted_text =
+    text
+    |> String.capitalize()
+    "#{converted_text}."
 
-  #   # second version
-  #   converted_text =
-  #   text
-  #   |> String.downcase()
-  #   |> String.capitalize()
-  #   "#{converted_text}."
-  # end
+    # second version
+    # converted_text =
+    # text
+    # |> String.capitalize()
+    # "AA#{converted_text}..."
+  end
 
   # @impl true
   # def code_change(_old_vsn, state, counter) do

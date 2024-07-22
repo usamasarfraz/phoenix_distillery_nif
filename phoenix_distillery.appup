@@ -3,7 +3,6 @@
     [{"0.1.0", [
         {update, 'Elixir.PhoenixDistillery.Application', supervisor},
         {update, 'Elixir.PhoenixDistillery.TextConversion'},
-        {update, 'Elixir.PhoenixDistillery.NifDemo'}
     ]}],
     [{"0.1.0", []}]
 }.
